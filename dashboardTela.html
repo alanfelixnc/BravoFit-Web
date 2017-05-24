@@ -11,9 +11,49 @@
   </head>
   <body>
     <div class="container">
-      
+      <div class="container left-panel">
+        <!-- cliente input -->
+        <div class="input-group consulta-cliente">
+          <input id="clientId" type="text" class="form-control" placeholder="CPF ou Nº Cadastro">
+          <span class="input-group-btn">
+            <button onclick="showClientData()" class="btn btn-warning" type="button">Consultar</button>
+          </span>
+        </div>
+        <div class="customer-data">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Nome</span>
+            <input value="########" contenteditable="false" type="text" class="form-control" placeholder="Nome completo">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Endereço</span>
+            <input value="########" contenteditable="false" type="text" class="form-control" placeholder="Endereço">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">E-mail</span>
+            <input value="########@gmail.com" contenteditable="false" type="text" class="form-control" placeholder="email@provedor.com">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Data de nascimento</span>
+            <input value="##/##/####" contenteditable="false" type="text" class="form-control" placeholder="01/01/1999">
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-warning">Salvar alterações</button>
+
+            <button type="button" class="btn btn-default">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
     </div>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      function showClientData() {
+        var clientId = document.getElementById('clientId');
+        if (clientId !== null || clientId !== "" || clientId !== undefined) {
+          document.getElementsByClassName('customer-data')[0].classList.add('show');
+        }
+      }
+    </script>
   </body>
 </html>
