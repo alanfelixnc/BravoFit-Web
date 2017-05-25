@@ -10,7 +10,7 @@ function loginEnd() {
 	var modal = document.getElementsByClassName('modal-loader')[0];
 	modal.classList.add('loading');
 	setTimeout(function(){
-		window.location.href = 'loginTela.html';
+		window.location.href = 'index.html';
 	}, 900);
 }
 
