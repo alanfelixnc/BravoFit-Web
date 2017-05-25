@@ -1,59 +1,175 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>BravoFit - Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap-darkly.min.css">
-    <link rel="stylesheet" href="css/cssloader.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="container left-panel">
-        <!-- cliente input -->
-        <div class="input-group consulta-cliente">
-          <input id="clientId" type="text" class="form-control" placeholder="CPF ou Nº Cadastro">
-          <span class="input-group-btn">
-            <button onclick="showClientData()" class="btn btn-warning" type="button">Consultar</button>
-          </span>
-        </div>
-        <div class="customer-data">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Nome</span>
-            <input value="########" contenteditable="false" type="text" class="form-control" placeholder="Nome completo">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Endereço</span>
-            <input value="########" contenteditable="false" type="text" class="form-control" placeholder="Endereço">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">E-mail</span>
-            <input value="########@gmail.com" contenteditable="false" type="text" class="form-control" placeholder="email@provedor.com">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Data de nascimento</span>
-            <input value="##/##/####" contenteditable="false" type="text" class="form-control" placeholder="01/01/1999">
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-warning">Salvar alterações</button>
+	<head>
+		<meta charset="utf-8">
+		<title>BravoFit - Dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="css/bootstrap-darkly.min.css">
+		<link rel="stylesheet" href="css/cssloader.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="container left-panel">
+				<div class="panel-label">
+					<h1><span class="label label-default">Clientes BravoFit</span></h1>
+				</div>
+				<!-- cliente input -->
+				<div class="input-group cliente-cpf">
+					<input id="clientId" type="text" class="form-control" placeholder="CPF ou Nº Cadastro">
+					<span class="input-group-btn">
+						<button onclick="showClientData()" class="btn btn-warning" type="button">Consultar</button>
+					</span>
+				</div>
+				<div class="customer-data consulta-cliente">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Nome</span>
+						<input value="########" contenteditable="false" type="text" class="form-control" placeholder="Nome completo">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Endereço</span>
+						<input value="########" contenteditable="false" type="text" class="form-control" placeholder="Endereço">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">E-mail</span>
+						<input value="########@gmail.com" contenteditable="false" type="text" class="form-control" placeholder="email@provedor.com">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Data de nascimento</span>
+						<input value="##/##/####" contenteditable="false" type="text" class="form-control" placeholder="01/01/1999">
+					</div>
+					<div class="btn-group" role="group">
+						<button onclick="#" type="button" class="btn btn-warning">Salvar alterações</button>
 
-            <button type="button" class="btn btn-default">Cancelar</button>
-          </div>
-        </div>
+						<button onclick="hideClientData()" type="button" class="btn btn-default">Cancelar</button>
+					</div>
+				</div>
+				<div class="customer-data show cadastro-cliente">
+					<div class="panel-label">
+						<h1><span class="label label-default">Cadastrar Cliente</span></h1>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Nome </span>
+						<input contenteditable="false" type="text" class="form-control" placeholder="Fulano Detall da Silva">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">CPF </span>
+						<input contenteditable="false" type="text" class="form-control" placeholder="999.999.999-99">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">E-mail </span>
+						<input contenteditable="false" type="text" class="form-control" placeholder="exemplo@bravofit.com">
+					</div>
+					<div class="btn-group" role="group">
+						<button onclick="#" type="button" class="btn btn-warning">Finalizar Cadastro</button>
+
+						<button onclick="cleanAllFields()" type="button" class="btn btn-default">Limpar</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="container right-panel">
+				<div class="statistics top-left">
+					<div class="panel-label">
+						<h3><span class="label label-default">Clientes Na Casa</span></h3>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Clientes ativos agora</h3>
+						</div>
+						<div class="panel-body-area">
+							<div class="panel-body main">
+								<span class="label label-default">Total</span><span>546521</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Musculação</span><span>546521</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">FitDance</span><span>546521</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Boxe</span><span>546521</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Swing Baiano</span><span>546521</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="statistics top-right">
+					<div class="panel-label">
+						<h3><span class="label label-default">Uso de Equipamentos</span></h3>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Uso total de equipamentos</h3>
+						</div>
+						<div class="panel-body-area">
+							<div class="panel-body">
+								<span class="label label-default">Esteira Aeróbica</span><span>45.3%</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Estação de Musculação</span><span>45.3%</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Bicicleta Ergométrica</span><span>45.3%</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Trampolim</span><span>45.3%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="statistics bottom-left">
+					<div class="panel-label">
+						<h3><span class="label label-default">Horas de Atividade</span></h3>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Horas em Rotina</h3>
+						</div>
+						<div class="panel-body-area">
+							<div class="panel-body main">
+								<span class="label label-default">Total</span><span>56129 horas</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Hoje</span><span>9 horas</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Esta Semana</span><span>29 horas</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Este Mês</span><span>129 horas</span>
+							</div>
+							<div class="panel-body">
+								<span class="label label-default">Este Semestre</span><span>6129 horas</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="statistics bottom-right">
+					<div class="panel-label">
+						<h3><span class="label label-default">Configurações</span></h3>
+					</div>
+					<div class="btn-group-vertical btn-group-lg" role="group">
+						<button onclick="forOfor()" class="btn btn-default" type="button">Trocar Usuário</button>
+						<button onclick="loginEnd()" class="btn btn-default" type="button">Sair</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-loader">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
       </div>
-
     </div>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-      function showClientData() {
-        var clientId = document.getElementById('clientId');
-        if (clientId !== null || clientId !== "" || clientId !== undefined) {
-          document.getElementsByClassName('customer-data')[0].classList.add('show');
-        }
-      }
-    </script>
-  </body>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/init.js"></script>
+	</body>
 </html>
